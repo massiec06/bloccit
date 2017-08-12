@@ -21,8 +21,8 @@ require 'random_data'
    )
  end
 
- Post.find_or_create_by!(title: "Different title", body: "Different body")
- Comment.find_or_create_by!(body: "Different body", post: posts.sample)
+ post = Post.find_or_create_by!(title: "Different title", body: "Different body")
+ Comment.find_or_create_by!(body: "Different body", post: post)
 
  puts "Seed finished"
  puts "#{Post.count} posts created"
