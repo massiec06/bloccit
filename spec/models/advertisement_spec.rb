@@ -13,7 +13,7 @@ RSpec.describe Advertisement, type: :model do
     end
 
     it "should respond to price" do
-      expect(advertiesment).to respond_to(:copy)
+      expect(advertiesment).to respond_to(:price)
     end
   end
 end
