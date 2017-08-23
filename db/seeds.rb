@@ -23,8 +23,8 @@ topics = Topic.all
    SponsoredPost.create!(
      topic:  topics.sample,
      title:  RandomData.random_sentence,
-     body:   RandomData.random_paragraph
-     price: integer
+     body:   RandomData.random_paragraph,
+     price: RandomData.random_integer
    )
  end
  sponsored_posts = SponsoredPost.all
