@@ -13,7 +13,7 @@ RSpec.describe SponsoredPost, type: :model do
 
   describe "attributes" do
     it "has title and body attributes" do
-      expect(post).to have_attributes(title: title, body: body, price: 99)
+      expect(sponsored_post).to have_attributes(title: title, body: body, price: 99)
     end
   end
 end

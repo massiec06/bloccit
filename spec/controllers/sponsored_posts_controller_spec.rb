@@ -38,18 +38,18 @@ RSpec.describe SponsoredPostsController, type: :controller do
    end
 
    describe "sponsored_post create" do
-     it "increases the number of sponsored_post by 1" do
-       expect{ sponsored_post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_integer } } }.to change(sponsored_post,:count).by(1)
+     it "increases the number of SponsoredPost by 1" do
+       expect{ post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_integer } } }.to change(SponsoredPost,:count).by(1)
      end
 
      it "assigns the new sponsored_post to @sponsored_post" do
-       sponsored_post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_integer } }
-       expect(assigns(:sponsored_post)).to eq sponsored_post.last
+       post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_integer } }
+       expect(assigns(:sponsored_post)).to eq SponsoredPost.last
      end
 
      it "redirects to the new sponsored_post" do
-       sponsored_post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_integer } }
-       expect(response).to redirect_to [my_topic, sponsored_post.last]
+       post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_integer } }
+       expect(response).to redirect_to [my_topic, SponsoredPost.last]
      end
    end
 
@@ -103,7 +103,7 @@ RSpec.describe SponsoredPostsController, type: :controller do
    describe "DELETE destroy" do
      it "deletes the sponsored_post" do
        delete :destroy, params: { topic_id: my_topic.id, id: my_sponsored_post.id }
-       count = Sponsored_post.where({id: my_sponsored_post.id}).size
+       count = SponsoredPost.where({id: my_sponsored_post.id}).size
        expect(count).to eq 0
      end
 
