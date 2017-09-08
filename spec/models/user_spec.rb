@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
    let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
 
    it { is_expected.to have_many(:posts) }
+   it { is_expected.to have_many(:comments) }
 
    it { is_expected.to validate_presence_of(:name) }
    it { is_expected.to validate_length_of(:name).is_at_least(1) }
@@ -40,7 +41,7 @@ RSpec.describe User, type: :model do
      it "is member by default" do
        expect(user.role).to eql("member")
      end
- 
+
      context "member user" do
        it "returns true for #member?" do
          expect(user.member?).to be_truthy
